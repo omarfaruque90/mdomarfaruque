@@ -12,6 +12,7 @@ import YouTubeVideos from "./pages/YouTubeVideos";
 import BlogPage from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
+import Portfolio from "./pages/Portfolio";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/admin" element={<AdminLogin />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
               <Route path="/youtube" element={<YouTubeVideos />} />
@@ -40,4 +42,3 @@ const App = () => (
 );
 
 export default App;
-
