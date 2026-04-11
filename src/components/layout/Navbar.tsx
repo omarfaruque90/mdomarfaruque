@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 const navLinks = [
   { name: 'Home', href: '/', icon: Home },
   { name: 'About', href: '#about', icon: User },
-  { name: 'Portfolio', href: '#portfolio', icon: Briefcase },
+  { name: 'Portfolio', href: '/portfolio', isPage: true, icon: Briefcase },
   { name: 'Resume', href: '#resume', icon: FileText },
   { name: 'YouTube', href: '/youtube', isPage: true, icon: Youtube },
   { name: 'Blog', href: '/blog', isPage: true, icon: BookOpen },

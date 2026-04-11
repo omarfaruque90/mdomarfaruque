@@ -38,12 +38,12 @@ export function Footer() {
 
           {/* Copyright - Secret admin link */}
           <div className="text-sm text-muted-foreground">
-            <Link 
-              to="/admin" 
+            <Link
+              to="/admin"
               className="hover:no-underline"
               style={{ color: 'inherit', textDecoration: 'none' }}
             >
-              © {new Date().getFullYear()} MD Omar Faruque. All rights reserved.
+              © 2024 MD Omar Faruque. All rights reserved.
             </Link>
           </div>
 

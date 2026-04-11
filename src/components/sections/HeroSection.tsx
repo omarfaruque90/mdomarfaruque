@@ -14,8 +14,8 @@ const professions = [
 const PROFILE_IMAGE_URL = 'https://lfplkumlwbieohlosvjk.supabase.co/storage/v1/object/public/assets/profiles/profile-1766920567285.jpg';
 
 export function HeroSection() {
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
+  const scrollToMeeting = () => {
+    const element = document.querySelector('#meeting');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -43,7 +43,7 @@ export function HeroSection() {
               {/* Animated border */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-primary animate-spin-slow opacity-75" />
               <div className="absolute inset-1 rounded-full bg-background" />
-              
+
               {/* Profile image - hardcoded with eager loading */}
               <div className="absolute inset-2 rounded-full overflow-hidden">
                 <img
@@ -74,7 +74,7 @@ export function HeroSection() {
             <AnimatedSection delay={0.2}>
               <p className="text-primary font-medium mb-2">Hello, I'm</p>
             </AnimatedSection>
-            
+
             <AnimatedSection delay={0.3}>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
                 MD Omar <span className="gradient-text">Faruque</span>
@@ -89,7 +89,7 @@ export function HeroSection() {
 
             <AnimatedSection delay={0.5}>
               <p className="text-muted-foreground max-w-lg mb-8 mx-auto lg:mx-0">
-                Passionate creative professional specializing in Generative AI Music & Video, 
+                Passionate creative professional specializing in Generative AI Music & Video,
                 Graphic Design, and Web Development. Transforming ideas into stunning visual and auditory experiences.
               </p>
             </AnimatedSection>
@@ -107,7 +107,7 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  onClick={scrollToContact}
+                  onClick={scrollToMeeting}
                   className="group"
                 >
                   <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />

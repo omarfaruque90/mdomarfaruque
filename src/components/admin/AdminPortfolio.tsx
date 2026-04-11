@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Edit2, Trash2, Upload } from 'lucide-react';
+import { Plus, Edit2, Trash2, Upload, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
+import { Switch } from '@/components/ui/switch';
 import { supabase, PortfolioWork } from '@/lib/supabase';
 import { useToast } from '@/hooks/use-toast';
 import { Image as ImageIcon } from 'lucide-react';
@@ -18,6 +19,7 @@ const emptyWork: Omit<PortfolioWork, 'id' | 'created_at' | 'updated_at'> = {
   image_url: '',
   project_url: '',
   category: 'Graphic Design',
+  show_on_homepage: false,
 };
 
 export function AdminPortfolio() {
@@ -61,7 +63,7 @@ export function AdminPortfolio() {
 
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this work?')) return;
-    
+
     setDeleting(id);
     try {
       const { error } = await supabase
@@ -70,7 +72,7 @@ export function AdminPortfolio() {
         .eq('id', id);
 
       if (error) throw error;
-      
+
       setWorks(works.filter((w) => w.id !== id));
       toast({ title: 'Work deleted successfully!' });
     } catch (error: any) {
@@ -135,6 +137,7 @@ export function AdminPortfolio() {
             image_url: editingWork.image_url,
             project_url: editingWork.project_url,
             category: editingWork.category,
+            show_on_homepage: editingWork.show_on_homepage ?? false,
             updated_at: new Date().toISOString(),
           })
           .eq('id', editingWork.id);
@@ -149,6 +152,7 @@ export function AdminPortfolio() {
             image_url: editingWork.image_url,
             project_url: editingWork.project_url,
             category: editingWork.category,
+            show_on_homepage: editingWork.show_on_homepage ?? false,
           }]);
 
         if (error) throw error;
@@ -237,7 +241,14 @@ export function AdminPortfolio() {
                   </div>
                 </div>
                 <div className="p-4">
-                  <span className="text-xs font-medium text-primary">{work.category}</span>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs font-medium text-primary">{work.category}</span>
+                    {(work as any).show_on_homepage && (
+                      <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full flex items-center gap-1">
+                        <Home className="w-3 h-3" /> Homepage
+                      </span>
+                    )}
+                  </div>
                   <h4 className="font-semibold mt-1">{work.title}</h4>
                   <p className="text-sm text-muted-foreground line-clamp-2 mt-1">
                     {work.description}
@@ -343,6 +354,19 @@ export function AdminPortfolio() {
                 value={editingWork?.description || ''}
                 onChange={(e) =>
                   setEditingWork((prev) => prev ? { ...prev, description: e.target.value } : null)
+                }
+              />
+            </div>
+
+            <div className="flex items-center justify-between rounded-lg border border-border p-4">
+              <div className="space-y-0.5">
+                <label className="text-sm font-medium">Show on Homepage</label>
+                <p className="text-xs text-muted-foreground">Enable to display this project on the homepage. Otherwise it will only appear on the Portfolio page.</p>
+              </div>
+              <Switch
+                checked={(editingWork as any)?.show_on_homepage ?? false}
+                onCheckedChange={(checked) =>
+                  setEditingWork((prev) => prev ? { ...prev, show_on_homepage: checked } : null)
                 }
               />
             </div>

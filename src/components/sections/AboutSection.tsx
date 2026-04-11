@@ -32,7 +32,7 @@ export function AboutSection() {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A multi-disciplinary creative professional passionate about bringing ideas to life 
+            A multi-disciplinary creative professional passionate about bringing ideas to life
             through design and technology.
           </p>
         </AnimatedSection>
@@ -45,13 +45,13 @@ export function AboutSection() {
                 Creative Professional with a Vision
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                I'm MD Omar Faruque, a passionate creative professional based in Bangladesh. 
-                With expertise spanning Generative AI music & video composition, creative graphic design, 
+                I'm MD Omar Faruque, a passionate creative professional based in Bangladesh.
+                With expertise spanning Generative AI music & video composition, creative graphic design,
                 and professional web development, I bring a unique, multi-disciplinary perspective to every project.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                My journey in the creative industry is driven by a relentless curiosity to master new technologies. 
-                Whether I am composing AI-powered music and video, crafting a stunning brand identity, 
+                My journey in the creative industry is driven by a relentless curiosity to master new technologies.
+                Whether I am composing AI-powered music and video, crafting a stunning brand identity,
                 or building a high-performance interactive website, I approach each task with enthusiasm and precision.
               </p>
               <p className="text-muted-foreground leading-relaxed">
@@ -68,7 +68,7 @@ export function AboutSection() {
                 { value: '30+', label: 'Projects Completed' },
                 { value: '2+', label: 'Years Experience' },
                 { value: '20+', label: 'Happy Clients' },
-                { value: '5+', label: 'Skills' },
+                { value: '4+', label: 'Skills' },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
