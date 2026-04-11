@@ -22,6 +22,7 @@ export interface PortfolioWork {
   image_url: string | null;
   project_url: string | null;
   category: string | null;
+  show_on_homepage: boolean;
   created_at: string;
   updated_at: string;
 }

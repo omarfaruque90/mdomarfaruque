@@ -211,6 +211,7 @@ export type Database = {
           id: string
           image_url: string | null
           project_url: string | null
+          show_on_homepage: boolean
           title: string
           updated_at: string
         }
@@ -221,6 +222,7 @@ export type Database = {
           id?: string
           image_url?: string | null
           project_url?: string | null
+          show_on_homepage?: boolean
           title: string
           updated_at?: string
         }
@@ -231,6 +233,7 @@ export type Database = {
           id?: string
           image_url?: string | null
           project_url?: string | null
+          show_on_homepage?: boolean
           title?: string
           updated_at?: string
         }
