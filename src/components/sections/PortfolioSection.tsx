@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { AnimatedSection } from '@/components/animations/AnimatedSection';
 import { Button } from '@/components/ui/button';
 import { supabase, PortfolioWork } from '@/lib/supabase';
@@ -18,6 +19,7 @@ const sampleWorks: PortfolioWork[] = [
     image_url: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=400&fit=crop',
     project_url: null,
     category: 'AI Music & Video',
+    show_on_homepage: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   },
@@ -28,6 +30,7 @@ const sampleWorks: PortfolioWork[] = [
     image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
     project_url: null,
     category: 'Web Development',
+    show_on_homepage: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   },
@@ -38,6 +41,7 @@ const sampleWorks: PortfolioWork[] = [
     image_url: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
     project_url: null,
     category: 'Graphic Design',
+    show_on_homepage: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   },
@@ -48,6 +52,7 @@ const sampleWorks: PortfolioWork[] = [
     image_url: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?w=600&h=400&fit=crop',
     project_url: null,
     category: 'AI Music & Video',
+    show_on_homepage: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   },
@@ -58,6 +63,7 @@ const sampleWorks: PortfolioWork[] = [
     image_url: 'https://images.unsplash.com/photo-1549490349-8643362247b5?w=600&h=400&fit=crop',
     project_url: null,
     category: 'Graphic Design',
+    show_on_homepage: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   },
@@ -68,6 +74,7 @@ const sampleWorks: PortfolioWork[] = [
     image_url: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop',
     project_url: null,
     category: 'Web Development',
+    show_on_homepage: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   },
@@ -88,6 +95,7 @@ export function PortfolioSection() {
       const { data, error } = await supabase
         .from('portfolio_works')
         .select('*')
+        .eq('show_on_homepage', true)
         .order('created_at', { ascending: false });
 
       if (error) {
@@ -117,10 +125,13 @@ export function PortfolioSection() {
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             My <span className="gradient-text">Portfolio</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explore my recent projects showcasing creativity and technical expertise 
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-4">
+            Explore my recent projects showcasing creativity and technical expertise
             across various domains.
           </p>
+          <Link to="/portfolio" className="inline-flex items-center gap-2 text-primary hover:underline font-medium">
+            View All Projects <ExternalLink className="w-4 h-4" />
+          </Link>
         </AnimatedSection>
 
         {/* Category Filter */}
@@ -165,13 +176,13 @@ export function PortfolioSection() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span className="text-xs font-medium text-primary mb-1">{work.category}</span>
                   <h3 className="font-display text-lg font-semibold mb-2">{work.title}</h3>
                   <p className="text-sm text-muted-foreground line-clamp-2">{work.description}</p>
-                  
+
                   <div className="flex items-center gap-2 mt-4">
                     <Button size="sm" variant="secondary">
                       <Eye className="w-4 h-4 mr-1" />
