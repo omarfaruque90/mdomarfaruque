@@ -25,6 +25,9 @@ export interface PortfolioWork {
   show_on_homepage: boolean;
   created_at: string;
   updated_at: string;
+  /** Optional extras used by local default project data */
+  github_url?: string | null;
+  tech_stack?: string[] | null;
 }
 
 export interface Resume {

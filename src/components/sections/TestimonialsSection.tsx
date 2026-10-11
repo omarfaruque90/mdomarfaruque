@@ -115,6 +115,12 @@ export const TestimonialsSection = () => {
     },
   });
 
+  // Hide the whole section until the first review is approved —
+  // an empty "No reviews yet" block hurts credibility.
+  if (!isLoading && reviews.length === 0) {
+    return null;
+  }
+
   return (
     <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-6xl mx-auto">

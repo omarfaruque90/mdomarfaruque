@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar as CalendarIcon, Clock, Send, CalendarCheck } from 'lucide-react';
+import { Calendar as CalendarIcon, Clock, Send, CalendarCheck, Mail, MapPin } from 'lucide-react';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/integrations/supabase/client';
@@ -122,6 +122,20 @@ export function MeetingSection() {
           <p className="text-muted-foreground mb-8">
             Want to discuss a project or need a consultation? Book a meeting and I'll get back to you with a confirmation.
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-8 text-sm text-muted-foreground">
+            <a
+              href="mailto:mdomarfaruque595@gmail.com"
+              className="inline-flex items-center gap-2 hover:text-primary transition-colors"
+            >
+              <Mail className="w-4 h-4" />
+              mdomarfaruque595@gmail.com
+            </a>
+            <span className="inline-flex items-center gap-2">
+              <MapPin className="w-4 h-4" />
+              Bogura, Bangladesh
+            </span>
+          </div>
 
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>

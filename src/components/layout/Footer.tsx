@@ -43,7 +43,7 @@ export function Footer() {
               className="hover:no-underline"
               style={{ color: 'inherit', textDecoration: 'none' }}
             >
-              © 2024 MD Omar Faruque. All rights reserved.
+              © {new Date().getFullYear()} MD Omar Faruque. All rights reserved.
             </Link>
           </div>
 
@@ -53,7 +53,11 @@ export function Footer() {
             <span>•</span>
             <a href="#portfolio" className="hover:text-primary transition-colors">Portfolio</a>
             <span>•</span>
-            <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+            <Link to="/blog" className="hover:text-primary transition-colors">Blog</Link>
+            <span>•</span>
+            <Link to="/youtube" className="hover:text-primary transition-colors">YouTube</Link>
+            <span>•</span>
+            <a href="#meeting" className="hover:text-primary transition-colors">Book a Call</a>
           </div>
         </motion.div>
       </div>

@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Sun, Moon, Home, User, Briefcase, FileText, Youtube, BookOpen, CalendarCheck } from 'lucide-react';
+import { Menu, X, Sun, Moon, Home, User, Briefcase, FileText, CalendarCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const navLinks = [
@@ -9,8 +9,6 @@ const navLinks = [
   { name: 'About', href: '#about', icon: User },
   { name: 'Portfolio', href: '/portfolio', isPage: true, icon: Briefcase },
   { name: 'Resume', href: '#resume', icon: FileText },
-  { name: 'YouTube', href: '/youtube', isPage: true, icon: Youtube },
-  { name: 'Blog', href: '/blog', isPage: true, icon: BookOpen },
   { name: 'Book a Call', href: '#meeting', icon: CalendarCheck, openMeeting: true },
 ];
 
@@ -290,7 +288,7 @@ export function Navbar() {
                     </Button>
                   </div>
                   <p className="text-xs text-muted-foreground text-center mt-6">
-                    © 2024 Omar Faruque
+                    © {new Date().getFullYear()} Omar Faruque
                   </p>
                 </motion.div>
               </div>

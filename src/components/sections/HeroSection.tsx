@@ -5,9 +5,9 @@ import { Typewriter } from '@/components/animations/Typewriter';
 import { AnimatedSection } from '@/components/animations/AnimatedSection';
 
 const professions = [
-  'Generative AI Music & Video Composer',
-  'Creative Graphic Designer',
-  'Professional Web Developer',
+  'Full-Stack Web Developer',
+  'Mobile App Developer',
+  'Generative AI Music & Video Creator',
 ];
 
 // Hardcoded profile image URL for instant loading
@@ -45,7 +45,7 @@ export function HeroSection() {
               <div className="absolute inset-1 rounded-full bg-background" />
 
               {/* Profile image - hardcoded with eager loading */}
-              <div className="absolute inset-2 rounded-full overflow-hidden">
+              <div className="absolute inset-2 rounded-full overflow-hidden bg-muted">
                 <img
                   src={PROFILE_IMAGE_URL}
                   alt="MD Omar Faruque"
@@ -82,15 +82,16 @@ export function HeroSection() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.4}>
-              <div className="text-xl md:text-2xl lg:text-3xl font-display text-muted-foreground mb-6 h-10">
+              <div className="text-xl md:text-2xl lg:text-3xl font-display text-muted-foreground mb-6 min-h-[2.75rem] md:min-h-[3.5rem] flex items-center justify-center lg:justify-start">
                 <Typewriter words={professions} />
               </div>
             </AnimatedSection>
 
             <AnimatedSection delay={0.5}>
               <p className="text-muted-foreground max-w-lg mb-8 mx-auto lg:mx-0">
-                Passionate creative professional specializing in Generative AI Music & Video,
-                Graphic Design, and Web Development. Transforming ideas into stunning visual and auditory experiences.
+                Full-stack developer building modern web and mobile apps with React,
+                Next.js, and Flutter — with a creative edge in Generative AI music &amp; video
+                and graphic design. I turn ideas into fast, polished products.
               </p>
             </AnimatedSection>
 
