@@ -10,6 +10,7 @@ import { ProjectCard } from '@/components/sections/ProjectCard';
 import { defaultProjects, projectCategories } from '@/data/projects';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { ParticleBackground, GradientOrbs } from '@/components/animations/ParticleBackground';
 
 export default function Portfolio() {
@@ -50,6 +51,7 @@ export default function Portfolio() {
       <ParticleBackground />
       <GradientOrbs />
       <Navbar />
+      <ScrollProgress />
       <main className="pt-20 pb-20 lg:pt-28 lg:pb-32">
         <div className="container mx-auto px-4">
           <AnimatedSection className="mb-8">

@@ -100,7 +100,7 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   onClick={scrollToResume}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all group"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all group shine"
                 >
                   <FileText className="w-5 h-5 mr-2" />
                   View Resume
@@ -109,7 +109,7 @@ export function HeroSection() {
                   size="lg"
                   variant="outline"
                   onClick={scrollToMeeting}
-                  className="group"
+                  className="group shine"
                 >
                   <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                   Hire Me

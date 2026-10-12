@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Palette, Globe, Play, Code } from 'lucide-react';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/animations/AnimatedSection';
+import { CountUp } from '@/components/animations/CountUp';
 
 const skills = [
   {
@@ -67,10 +68,10 @@ export function AboutSection() {
           <AnimatedSection delay={0.3}>
             <div className="grid grid-cols-2 gap-6">
               {[
-                { value: '30+', label: 'Projects Completed' },
-                { value: '2+', label: 'Years Experience' },
-                { value: '20+', label: 'Happy Clients' },
-                { value: '15+', label: 'Technologies' },
+                { value: 30, suffix: '+', label: 'Projects Completed' },
+                { value: 2, suffix: '+', label: 'Years Experience' },
+                { value: 20, suffix: '+', label: 'Happy Clients' },
+                { value: 15, suffix: '+', label: 'Technologies' },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -81,7 +82,7 @@ export function AboutSection() {
                   className="glass rounded-2xl p-6 text-center hover:shadow-lg transition-shadow"
                 >
                   <div className="font-display text-3xl md:text-4xl font-bold gradient-text mb-2">
-                    {stat.value}
+                    <CountUp value={stat.value} suffix={stat.suffix} />
                   </div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </motion.div>

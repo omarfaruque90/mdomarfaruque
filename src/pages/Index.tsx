@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { TechMarquee } from '@/components/sections/TechMarquee';
 import { AboutSection } from '@/components/sections/AboutSection';
@@ -20,6 +21,7 @@ const Index = () => {
       <ParticleBackground />
       <GradientOrbs />
       <Navbar />
+      <ScrollProgress />
       <main>
         <HeroSection />
         <TechMarquee />

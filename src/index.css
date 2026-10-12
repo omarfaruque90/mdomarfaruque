@@ -106,6 +106,8 @@
 @layer utilities {
   .gradient-text {
     background-image: var(--gradient-primary);
+    background-size: 200% auto;
+    animation: gradient-pan 8s ease-in-out infinite;
     @apply bg-clip-text text-transparent;
   }
 
@@ -127,6 +129,45 @@
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Slow pan for gradient text */
+@keyframes gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Shine sweep on hover (buttons, cards) */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, hsla(0 0% 100% / 0.35) 50%, transparent 60%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.shine:hover::after {
+  animation: shine-sweep 0.9s ease;
+}
+
+@keyframes shine-sweep {
+  to { transform: translateX(120%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .gradient-text {
+    animation: none;
+  }
+  .shine:hover::after {
+    animation: none;
+  }
 }
 
 @keyframes marquee {
