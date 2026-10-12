@@ -73,6 +73,10 @@
     --border: 222 20% 18%;
     --input: 222 20% 18%;
     --ring: 174 72% 50%;
+
+    /* dark-mode glass: dark translucent gradient so glass cards
+       don't wash out on dark backgrounds */
+    --gradient-glass: linear-gradient(135deg, hsla(222 25% 20% / 0.85), hsla(222 25% 12% / 0.45));
   }
 }
 
