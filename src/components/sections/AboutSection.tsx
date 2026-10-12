@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Palette, Globe, Play, Code } from 'lucide-react';
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/animations/AnimatedSection';
+import { CountUp } from '@/components/animations/CountUp';
 
 const skills = [
   {
@@ -42,17 +43,19 @@ export function AboutSection() {
           <AnimatedSection delay={0.2}>
           <div className="space-y-6">
               <h3 className="font-display text-2xl font-semibold">
-                Creative Professional with a Vision
+                Developer with a Creative Edge
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                I'm MD Omar Faruque, a passionate creative professional based in Bangladesh.
-                With expertise spanning Generative AI music & video composition, creative graphic design,
-                and professional web development, I bring a unique, multi-disciplinary perspective to every project.
+                I'm MD Omar Faruque, a full-stack developer based in Bangladesh.
+                I build modern web apps with React and Next.js, mobile apps with Flutter,
+                and browser extensions — backed by a creative foundation in Generative AI
+                music & video and graphic design.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                My journey in the creative industry is driven by a relentless curiosity to master new technologies.
-                Whether I am composing AI-powered music and video, crafting a stunning brand identity,
-                or building a high-performance interactive website, I approach each task with enthusiasm and precision.
+                My journey is driven by a relentless curiosity to master new technologies.
+                Whether I'm shipping an offline-first expense tracker, a luxury e-commerce
+                platform, or a cinematic CRM dashboard, I approach each project with
+                enthusiasm and precision.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 I believe in the power of blending human creativity with modern technology to transform ideas into impactful experiences.
@@ -65,10 +68,10 @@ export function AboutSection() {
           <AnimatedSection delay={0.3}>
             <div className="grid grid-cols-2 gap-6">
               {[
-                { value: '30+', label: 'Projects Completed' },
-                { value: '2+', label: 'Years Experience' },
-                { value: '20+', label: 'Happy Clients' },
-                { value: '4+', label: 'Skills' },
+                { value: 30, suffix: '+', label: 'Projects Completed' },
+                { value: 2, suffix: '+', label: 'Years Experience' },
+                { value: 20, suffix: '+', label: 'Happy Clients' },
+                { value: 15, suffix: '+', label: 'Technologies' },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -79,7 +82,7 @@ export function AboutSection() {
                   className="glass rounded-2xl p-6 text-center hover:shadow-lg transition-shadow"
                 >
                   <div className="font-display text-3xl md:text-4xl font-bold gradient-text mb-2">
-                    {stat.value}
+                    <CountUp value={stat.value} suffix={stat.suffix} />
                   </div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </motion.div>
